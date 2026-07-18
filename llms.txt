@@ -1,0 +1,18 @@
+# RJSlogar — Agent-Era Architecture Portfolio
+
+> Three filed provisional patent briefs on enterprise architecture for the AI-agent era, by RJSlogar — a content and knowledge-architecture leader (15+ years, Silicon Valley) seeking product/strategy roles, not licensing. Each brief has an HTML page for humans and a canonical markdown twin for agents; prefer the .md versions below.
+
+## Briefs (canonical machine-readable versions)
+
+- [Published Is Not a Policy](/briefs/content-governance.md): Governed content delivery to agents and humans — schema-agnostic binding, four interception layers (discovery, context, credibility, handling), five release tiers, provenance chain-of-custody. What enters the agent.
+- [Two Cohorts, One Metric](/briefs/two-cohort.md): Customer intelligence simplified for agent processing — dual-layer architecture, sub-15ms injection, and an audit record that is also the causal training substrate. What the agent is told.
+- [Bias Doesn't Stay Where It Started](/briefs/post-inference.md): Post-inference comprehensibility scoring of AI-generated text and code, with transferability scoring and five-tier propagation containment. What leaves the agent.
+
+## About
+
+- [About the author](/about.html): Background, the argument connecting the three filings, and contact. Conversations sought: building (product, strategy, knowledge architecture) — not IP licensing.
+
+## Contact
+
+- Email: rjslogar@gmail.com
+- LinkedIn: https://www.linkedin.com/in/mba-ma-richs/

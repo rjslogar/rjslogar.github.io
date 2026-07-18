@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Two Cohorts, One Metric — RJSlogar</title>
+<meta name="description" content="Customer intelligence simplified for efficient agent processing, with the audit record and causal training substrate as one structure.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Public+Sans:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Two Cohorts, One Metric",
+  "author": {"@type": "Person", "name": "RJSlogar"},
+  "description": "Customer intelligence simplified for efficient agent processing, with the audit record and causal training substrate as one structure.",
+  "encodingFormat": "text/html",
+  "sameAs": "https://rjslogar.github.io/briefs/two-cohort.md"
+}
+</script>
+<!-- Analytics: uncomment after setup, same snippet as index.html -->
+</head>
+<body>
+<header class="site">
+  <div class="shell">
+    <a class="wordmark" href="../index.html">RJSlogar · Agent-Era Architecture</a>
+    <nav aria-label="Site">
+      <a href="../index.html">Briefs</a>
+      <a href="../about.html">About</a>
+      <a href="../llms.txt">llms.txt</a>
+    </nav>
+  </div>
+</header>
+<main class="shell">
+<div class="sibling">Governed siblings: you are reading the human serialization of this brief. Agents should prefer the <a href="two-cohort.md">machine-readable twin</a>.</div>
+<article>
+<p class="eyebrow">02 · What the agent is told</p>
+<h1>Two Cohorts, One Metric</h1>
+<p><strong>Customer intelligence simplified for efficient agent processing — with the audit record and causal training substrate built into the same design, so high-LTV progression drives auditable business decisions.</strong></p>
+<p><em>Filed provisional patent applications (two related filings). Full technical specification available on request.</em></p>
+<hr />
+<h2>The problem: analytics built for dashboards can&rsquo;t run in a prompt</h2>
+<p>Enterprise customer analytics was built for human consumption — fine-grained segments, dozens of scores, dashboards reviewed at monitoring consoles. LLM agents invert all of it: the intelligence must arrive <em>inside the prompt</em>, in milliseconds, compact enough to act on coherently, and computed off the request path — because analytics in the path scales cost with every conversation, and a multitude of signals in a system prompt makes an agent muddier, not sharper.</p>
+<p>Cohort segmentation is as old as CRM; agent platforms already pipe customer context into prompts; the industry is bolting audit logs onto agents. Every ingredient exists — what doesn&rsquo;t is the unification, and the identity at its center: <strong>the audit record and the causal training data are the same structure, written once at injection time.</strong> Today&rsquo;s agent logs are forensic exhaust, built to reconstruct incidents after the fact; none are designed as the statistical instrument a causal model trains on. So this architecture bets against the industry&rsquo;s instinct for richer intelligence and heavier audit trails: make the signal simpler and write it once, so the same frozen record governs the agent, satisfies the auditor, and trains the model.</p>
+<h2>The architecture</h2>
+<p><strong>Two cohorts, the threshold zone between them, one metric.</strong> A customer is in the high-value cohort or is not — one classification, one boundary. The intelligence concentrates where it pays: the threshold zone of customers whose transition is genuinely in play, scored by an LTV-weighted causal uplift estimate of whether intervention will actually move them, and translated into a recommended agent approach. The executive output is a single number — the <strong>Cohort Health Metric</strong>, one business-health figure: the share of the customer base in the high-value cohort. Simplification isn&rsquo;t a compromise here; it&rsquo;s what makes the system fast enough to serve, cheap enough to run, legible enough for an agent to act on, and optimized for processing the signal set collectively — as one coherent unit — rather than piecemeal.</p>
+<p><strong>A dual-layer system built on that simplicity.</strong> The compact pre-computed signal — cohort membership, threshold-zone status, the uplift score, churn risk, the recommended approach — lives in an in-memory decision layer and is injected into the agent&rsquo;s prompt in under 15ms at the 99th percentile, at 10M-daily-active-user scale. All expensive analytics run asynchronously in a second layer on an independent schedule — approximately a 95% infrastructure cost reduction versus unified real-time analytics architectures, because nothing analytical ever sits in the request path.</p>
+<p><strong>Causal, not correlational, on the one transition that matters.</strong> Uplift modeling with treatment and control groups isolates the incremental effect of interventions on cohort transitions from baseline propensity — separating customers who moved because the agent acted from those who would have moved anyway — and weights that effect by lifetime value, so agent effort is spent where causation and value intersect.</p>
+<p><strong>Every injection leaves a record — because prompt-delivered treatment is otherwise invisible.</strong> A coupon leaves a ledger; a treatment mandate delivered through a system prompt leaves nothing, anywhere, unless the record is built deliberately. So a tamper-evident audit record is written at injection time, before the agent generates a word, capturing exactly which signals the enterprise supplied. The second filing closes the loop: that audit record and the causal training substrate are the same structure, written once — treatment assignment is read only from audit records, covariates are the values frozen at assignment time (eliminating feature leakage by construction), a small randomized-withholding cohort upgrades the system to true experimentation, and agent concessions are joined to the mandate in force so treatment economics feed back into the model.</p>
+<p><strong>One number a board can trust and an auditor can verify.</strong> The Cohort Health Metric decomposes causally into intervention-driven, organic, retention, and attrition components — and because the substrate beneath it is tamper-evident, every unit of high-LTV progression drills down to a verifiable record. Real business decisions — where to spend agent effort, which interventions to scale, which concessions pay for themselves — rest on audited causation rather than dashboard correlation.</p>
+<h2>Why now</h2>
+<p>Agent platforms are winning deals on resolution rates and losing sleep on two fronts at once: the infrastructure cost of putting intelligence into every conversation, and the governance question regulators and enterprise buyers are already asking — <em>what did you tell the agent about me, and what happened because of it?</em> A two-cohort, one-metric design answers both with the same move: intelligence simple enough to serve at conversation scale is also simple enough to explain, audit, and learn from.</p>
+<hr />
+<p><em>One of three filed provisionals on agent-era enterprise architecture — the others cover post-inference evaluation of AI-generated artifacts and governed content delivery to agents.</em></p>
+<p><em>Prepared by RJSlogar — 15+ years leading technical content organizations for Silicon Valley companies, most recently through an AI-native transformation of enterprise content architecture. These filings are shared as a portfolio of product thinking for the agent era; the conversations I&rsquo;m looking for are about building, not licensing. https://rjslogar.github.io · https://www.linkedin.com/in/mba-ma-richs/</em></p>
+</article>
+</main>
+<footer class="site">
+  <div class="shell">
+    <span>© 2026 RJSlogar · <a href="mailto:rjslogar@gmail.com">rjslogar@gmail.com</a> · <a href="https://www.linkedin.com/in/mba-ma-richs/">LinkedIn</a></span>
+    <span>This site ships governed siblings: every brief has a <a href="../llms.txt">machine-readable twin</a>.</span>
+  </div>
+</footer>
+</body>
+</html>

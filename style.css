@@ -1,0 +1,91 @@
+/* ---- tokens ---------------------------------------------------- */
+:root {
+  --paper: #f5f6f4;
+  --ink: #1a2129;
+  --slate: #5b6672;
+  --rule: #d9ddda;
+  --verify: #0e6e5c;      /* accent: verification green */
+  --verify-soft: #e3efec;
+  --max: 70rem;
+  --measure: 44rem;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --paper:#151a1e; --ink:#e8eae7; --slate:#98a2ab; --rule:#2b3238; --verify:#4fb39d; --verify-soft:#1d2f2b; }
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+
+body {
+  margin: 0; background: var(--paper); color: var(--ink);
+  font: 400 1.0625rem/1.65 "Public Sans", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--verify); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--verify); outline-offset: 3px; }
+
+/* ---- type roles ------------------------------------------------- */
+h1, h2, h3, .display { font-family: "Newsreader", Georgia, serif; font-weight: 500; line-height: 1.15; letter-spacing: -0.01em; }
+.mono, .eyebrow, nav, .meta, footer { font-family: "IBM Plex Mono", ui-monospace, monospace; }
+.eyebrow { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--slate); }
+
+/* ---- shell ------------------------------------------------------ */
+.shell { max-width: var(--max); margin: 0 auto; padding: 0 1.25rem; }
+header.site { border-bottom: 1px solid var(--rule); }
+header.site .shell { display: flex; justify-content: space-between; align-items: baseline; padding-top: 1.1rem; padding-bottom: 1.1rem; gap: 1rem; flex-wrap: wrap; }
+header.site .wordmark { font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); text-decoration: none; }
+nav a { font-size: 0.78rem; color: var(--slate); text-decoration: none; margin-left: 1.4rem; }
+nav a:hover, nav a[aria-current="page"] { color: var(--verify); }
+
+/* ---- landing hero ----------------------------------------------- */
+.hero { padding: 5rem 0 3.5rem; }
+.hero h1 { font-size: clamp(2.1rem, 5.5vw, 3.6rem); margin: 0 0 1.4rem; max-width: 22ch; }
+.hero h1 em { font-style: italic; color: var(--verify); }
+.hero p.lede { max-width: var(--measure); color: var(--slate); font-size: 1.125rem; margin: 0; }
+
+/* ---- pipeline cards --------------------------------------------- */
+.pipeline { padding-bottom: 4.5rem; }
+.card {
+  display: block; border-top: 1px solid var(--rule); padding: 2rem 0 2.2rem;
+  text-decoration: none; color: inherit; position: relative;
+}
+.card:last-child { border-bottom: 1px solid var(--rule); }
+.card .eyebrow .n { color: var(--verify); }
+.card h2 { font-size: clamp(1.5rem, 3.4vw, 2.1rem); margin: 0.5rem 0 0.6rem; }
+.card p.thesis { max-width: var(--measure); margin: 0 0 0.9rem; color: var(--ink); }
+.card .meta { font-size: 0.72rem; color: var(--slate); }
+.card .go { position: absolute; right: 0; top: 2.1rem; font-family: "IBM Plex Mono", monospace; font-size: 0.8rem; color: var(--verify); transition: transform 0.15s ease; }
+.card:hover .go { transform: translateX(4px); }
+.card:hover h2 { color: var(--verify); }
+
+/* ---- article (brief pages) -------------------------------------- */
+article { max-width: var(--measure); margin: 0 auto; padding: 3.5rem 0 4rem; }
+article h1 { font-size: clamp(1.9rem, 4.5vw, 2.7rem); margin: 0.4rem 0 1rem; }
+article h2 { font-size: 1.35rem; margin: 2.4rem 0 0.7rem; }
+article p, article li { color: var(--ink); }
+article strong { font-weight: 600; }
+article hr { border: 0; border-top: 1px solid var(--rule); margin: 2.2rem 0; }
+article em { color: inherit; }
+article > p:first-of-type strong { font-family: "Newsreader", Georgia, serif; font-weight: 500; font-size: 1.2rem; line-height: 1.4; }
+.sibling {
+  margin: 2rem auto 0; max-width: var(--measure);
+  background: var(--verify-soft); border-left: 3px solid var(--verify);
+  padding: 0.8rem 1rem; font-size: 0.78rem; color: var(--slate);
+}
+.sibling a { color: var(--verify); }
+
+/* ---- about ------------------------------------------------------ */
+.prose { max-width: var(--measure); margin: 0 auto; padding: 3.5rem 0 4rem; }
+.prose h1 { font-size: clamp(1.9rem, 4.5vw, 2.7rem); }
+
+/* ---- footer ----------------------------------------------------- */
+footer.site { border-top: 1px solid var(--rule); }
+footer.site .shell { padding: 1.6rem 1.25rem 2.2rem; font-size: 0.72rem; color: var(--slate); display: flex; flex-wrap: wrap; gap: 0.5rem 2rem; justify-content: space-between; }
+footer.site a { color: var(--slate); }
+footer.site a:hover { color: var(--verify); }
+
+@media (max-width: 40rem) {
+  .hero { padding: 3rem 0 2.2rem; }
+  .card .go { position: static; display: inline-block; margin-top: 0.6rem; }
+}
