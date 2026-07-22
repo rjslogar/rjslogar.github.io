@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Published Is Not a Policy — RJSlogar</title>
-<meta name="description" content="Governed content delivery to AI agents and humans — per-field release control bound to the moments of agent cognition.">
+<title>Published Is Not a Policy � RJSlogar</title>
+<meta name="description" content="Governed content delivery to AI agents and humans � per-field release control bound to the moments of agent cognition.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Public+Sans:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -15,18 +15,17 @@
   "@type": "TechArticle",
   "headline": "Published Is Not a Policy",
   "author": {"@type": "Person", "name": "RJSlogar"},
-  "description": "Governed content delivery to AI agents and humans — per-field release control bound to the moments of agent cognition.",
+  "description": "Governed content delivery to AI agents and humans � per-field release control bound to the moments of agent cognition.",
   "encodingFormat": "text/html",
   "sameAs": "https://rjslogar.github.io/briefs/content-governance.md"
 }
 </script>
-    <script data-goatcounter="https://rjslogar.goatcounter.com/count"
-            async src="//gc.zgo.at/count.js"></script>
+<!-- Analytics: uncomment after setup, same snippet as index.html -->
 </head>
 <body>
 <header class="site">
   <div class="shell">
-    <a class="wordmark" href="../index.html">RJSlogar · Agent-Era Architecture</a>
+    <a class="wordmark" href="../index.html">RJSlogar � Agent-Era Architecture</a>
     <nav aria-label="Site">
       <a href="../index.html">Briefs</a>
       <a href="../about.html">About</a>
@@ -37,32 +36,33 @@
 <main class="shell">
 <div class="sibling">Governed siblings: you are reading the human serialization of this brief. Agents should prefer the <a href="content-governance.md">machine-readable twin</a>.</div>
 <article>
-<p class="eyebrow">01 · What enters the agent</p>
+<p class="eyebrow">01 � What enters the agent</p>
 <h1>Published Is Not a Policy</h1>
-<p><strong>Governed content delivery to AI agents and humans — per-field release control, bound to the moments of agent cognition.</strong></p>
+<p><strong>Governed content delivery to AI agents and humans — per-field release control through four interception layers, Discovery, Context, Credibility, and Handling, bound to the moments of agent cognition.</strong></p>
 <p><em>Filed provisional patent application. Full technical specification available on request.</em></p>
 <hr />
-<h2>The problem: fragments of governance, no unifying binding</h2>
-<p>Enterprises already signal to agents where publish-or-don&rsquo;t falls short — an llms.txt here, JSON-LD there, robots directives and even HTML comments pressed into service as machine hints. But every one of these mechanisms is format-bound, advisory, and coarse: whole-document suggestions an agent may honor or ignore, with no shared settings across formats and nothing governing what happens after discovery. An agent that reaches a document still takes all of it — the current fact and the deprecated warning, the public spec and the internal caveat — then quotes, summarizes, and acts on it with equal confidence, and hands it to the next agent with no record of where it came from or what conditions attached.</p>
-<p>So content governance today is scattered where it exists and binary where it doesn&rsquo;t: open the content and surrender control of how agents use it, or wall it off and watch agents answer customer questions from someone else&rsquo;s stale copy. What&rsquo;s missing is the unification — one binding mechanism with collective settings, operating <em>per field, per audience, per moment of use</em> — and a chain of custody that survives the content&rsquo;s journey through an agent pipeline.</p>
+<h2>The problem: one bit of governance for an agent-scale world</h2>
+<p>Enterprise content has exactly one access control: published or not. That binary was tolerable when the audience was human — people read selectively, respect context, and can be trained. Agents can&rsquo;t be published <em>at</em>. An agent that can reach a document takes all of it: the current fact and the deprecated warning, the public spec and the internal caveat, the authoritative answer and the draft beside it — then quotes, summarizes, and acts on that content with equal confidence, and hands it to the next agent with no record of where it came from or what conditions attached to it.</p>
+<p>So enterprises face a false choice: open the content and surrender control of how agents use it, or wall it off and watch agents answer customer questions from someone else&rsquo;s stale copy. What&rsquo;s missing is the middle — governance that answers four questions, in the order an agent actually asks them: can the agent <strong>find</strong> this at all (Discovery), what <strong>framing</strong> accompanies it (Context), what <strong>trust weight</strong> does it carry (Credibility), and what may the agent <strong>do</strong> with it — quote it, summarize it, act on it (Handling). Publishing answers none of these. This architecture answers each one, per field, per audience, at the moment of use.</p>
+<h2>Where this sits</h2>
+<p>Pieces of this exist, and the overlap is the point — it proves the problem is real. Some companies ship strong Discovery and Context today, with ranking and citations standing in for trust; others govern Discovery and Handling as data protection, strong on classification but are silent on what an agent may do with content once retrieved; when strongest on Credibility and policy definition, others catalog and approve rather than operating in the retrieval path. What none of them provides — and what this filing adds rather than replaces — is a formal, computed credibility score in place of ranking proxies, and a declarative, per-action Handling policy in place of binary include/exclude, both enforced as a runtime layer at the moment of use.</p>
+<p>The policy itself needs an owner, and this design doesn&rsquo;t invent a new one: it gives whoever already owns content risk — security for exposure, legal for claims, the content and knowledge team for accuracy — a single enforcement point where their existing policies finally execute.</p>
 <h2>The architecture</h2>
-<p><strong>Govern the schema you already have.</strong> A schema-agnostic binding engine normalizes any input content schema into a format-agnostic field inventory with a lossless passthrough guarantee — nothing is altered or dropped during ingestion, so adoption requires no re-authoring and no content migration. An inference-based auto-assignment model then proposes governance bindings by matching field-name semantics against an extensible pattern vocabulary and performing schema ontology alignment, with a per-field confidence score — so a thousand-field enterprise schema gets a governed baseline in a single automated pass, and human review is spent where confidence is low.</p>
-<p><strong>Four interception layers, matched to the moments of agent cognition.</strong> Agent engagement with content isn&rsquo;t one event — it&rsquo;s a sequence, and the architecture intercepts at each named stage of the reasoning loop: <em>discovery</em> (can the agent find this at all), <em>context</em> (what framing accompanies it), <em>credibility</em> (what trust weight it carries), and <em>handling</em> (what the agent may do with it — quote it, summarize it, or execute an action). A structured conditioning key isolates the discovery stage from rule content as an architectural constraint, so an agent can be permitted to discover a document without exposing the governance logic attached to it.</p>
-<p><strong>Release is a cascade, not a switch.</strong> Per-field release decisions evaluate against five graduated release tiers, mapping disclosure against verified roles and replacing the publish/don&rsquo;t-publish bit with graduated disclosure — the identical source object can yield different governed views for a public agent, a partner agent, and an internal tool, from a single configuration.</p>
-<p><strong>One binding, two audiences.</strong> A serialization engine produces both agent-readable payloads — dynamically generated llms.txt, skill.md, or metadata schemas — and human-readable layouts (HTML, PDF) from the same unified binding configuration. To deliver tailored variations, a personalization module applies named merge operations (replace, inject, suppress) from a co-located extension file onto structural zone references defined by a formal heading grammar, with the base content as the fallback. Single-sourcing, extended to the agent era: the human page and the machine payload are governed siblings, not divergent copies.</p>
-<p><strong>Every release explains itself — and travels with its papers.</strong> Each delivery event generates a complete machine-readable explainability record: a trust indicator with decomposed factor weights (freshness, authorship, contextual alignment), the counterfactual decisions documenting what would have been released under alternative conditions, and a provenance token embedded in the served output itself, carrying an append-only chain array that receives handling records from downstream nodes. When content surfaces three agents downstream, its origin, its handling constraints, and every hand it passed through are still attached.</p>
-<p><strong>Governance that watches itself.</strong> Passive observability subsystems trace cross-node lineage, run counterfactual drift detection across structural and contextual dimensions, and place configuration changes behind a human-approval gate — so the governance layer is itself auditable, not a new black box between content and agents.</p>
+<p><strong>Govern the schema you already have.</strong> A schema-agnostic binding engine normalizes any input content schema into a format-agnostic field inventory with a lossless passthrough guarantee — nothing is altered or dropped, so adoption requires no re-authoring and no migration. An inference-based auto-assignment model then proposes governance bindings by matching field names against a pattern vocabulary and aligning schema ontologies, with a per-field confidence score — so a thousand-field enterprise schema gets a governed starting point in one pass, and human review is spent only where confidence is low.</p>
+<p><strong>Four interception layers, matched to the moments of agent cognition.</strong> Agent engagement with content isn&rsquo;t one event — it&rsquo;s a sequence, and the architecture intercepts at each named stage: <em>Discovery</em> (can the agent find this at all), <em>Context</em> (what framing accompanies it), <em>Credibility</em> (what trust weight it carries), and <em>Handling</em> (what the agent may do with it — quote, summarize, act). A conditioning key isolates the discovery stage from rule content, so an agent can be permitted to find a document without ever seeing the rules that govern it. And because each layer is a policy check, not a data store — the key resolves once per session, and the later layers travel in-band with the governed content itself — the latency cost is bounded and cacheable per session, not a per-request analytics call inside the agent loop.</p>
+<p><strong>Release is a cascade, not a switch.</strong> Per-field release decisions evaluate against five named release tiers, replacing the publish/don&rsquo;t-publish bit with graduated disclosure — the same source object can yield different governed views for a public agent, a partner agent, and an internal one.</p>
+<p><strong>One binding, every delivery surface.</strong> A serialization engine produces both agent-readable and human-readable governed artifacts from the same unified binding configuration — the human page and the agent payload are governed siblings, not divergent copies. The binding governs fields, not file types: the reference implementation targets published content — documentation, knowledge bases, structured repositories — and a pluggable serialization adapter registry carries the same bindings to new delivery surfaces, including feed- and API-style output, as a configuration entry rather than a redesign.</p>
+<p><strong>Every release explains itself — and travels with its papers.</strong> Each release event generates a complete machine-readable explainability record: a trust indicator with decomposed factor weights, the counterfactual decisions (what would have been released under different conditions), and a provenance token embedded in the governed output itself, carrying a chain array for multi-agent chain-of-custody. When content surfaces three agents downstream, its origin, its conditions, and every hand it passed through are still attached.</p>
 <h2>Why now</h2>
-<p>The content feeding AI agents has become the product — resolution rates rise and fall on knowledge quality, enterprises are watching answer engines consume their documentation on someone else&rsquo;s terms, and the market is consolidating around exactly this convergence: agent platforms acquiring content platforms to own the pipeline from source to answer. Emerging explainability and documentation obligations for automated systems are turning the un-instrumented content layer into a compliance liability. And the bindings cut both ways: as agent-mediated search and answer engines reshape how content gets found, the structured signals that govern release — credibility weights, freshness, per-field structure, provenance — are the same signals ranking systems reward. Agent search optimization is a natural extension of the binding framework: govern the content, and it is already instrumented to compete. The architecture is also the natural companion to evaluation: one system governs what enters the agent, the other scores what leaves it.</p>
+<p>The content feeding AI agents has become the product — resolution rates rise and fall on knowledge quality, enterprises are watching answer engines consume their documentation on someone else&rsquo;s terms, and the market is consolidating around exactly this convergence: agent platforms acquiring content platforms to own the pipeline from source to answer. Conventions like llms.txt are the first, crude acknowledgment that agents need different delivery than humans. What they lack is everything after discovery: context, credibility, handling, and custody. That&rsquo;s the layer this architecture supplies — and it&rsquo;s the natural companion to evaluation: one system governs what enters the agent, the other scores what leaves it.</p>
 <hr />
 <p><em>One of three filed provisionals on agent-era enterprise architecture — the others cover closed-loop customer intelligence for LLM agents and post-inference evaluation of AI-generated artifacts.</em></p>
-<p><em>Prepared by RJSlogar — 15+ years leading technical content organizations for Silicon Valley companies, most recently through an AI-native transformation of enterprise content architecture. These filings are shared as a portfolio of product thinking for the agent era; the conversations I&rsquo;m looking for are about building, not licensing. https://rjslogar.github.io · https://www.linkedin.com/in/mba-ma-richs/</em></p>
 </article>
 </main>
 <footer class="site">
   <div class="shell">
-    <span>© 2026 RJSlogar · <a href="mailto:rjslogar@gmail.com">rjslogar@gmail.com</a> · <a href="https://www.linkedin.com/in/mba-ma-richs/">LinkedIn</a></span>
-    <span>Governed siblings: <a href="content-governance.md">this brief&rsquo;s machine-readable twin</a> · all twins indexed in <a href="../llms.txt">llms.txt</a></span>
+    <span>� 2026 RJSlogar � <a href="mailto:rjslogar@gmail.com">rjslogar@gmail.com</a> � <a href="https://www.linkedin.com/in/mba-ma-richs/">LinkedIn</a></span>
+    <span>This site ships governed siblings: every brief has a <a href="../llms.txt">machine-readable twin</a>.</span>
   </div>
 </footer>
 </body>

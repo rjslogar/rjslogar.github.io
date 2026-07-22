@@ -1,6 +1,6 @@
 # Two Cohorts, One Metric
 
-**Customer intelligence simplified for efficient agent processing — with the audit record and causal training substrate built into the same design, so high-LTV progression drives auditable business decisions.**
+**Customer intelligence simplified until an agent can actually use it — and one record, written at injection time, that is both the audit trail and the source of the causal training data.**
 
 *Filed provisional patent applications (two related filings). Full technical specification available on request.*
 
@@ -8,21 +8,29 @@
 
 ## The problem: analytics built for dashboards can't run in a prompt
 
-Enterprise customer analytics was built for human consumption — fine-grained segments, dozens of scores, dashboards reviewed at monitoring consoles. LLM agents invert all of it: the intelligence must arrive *inside the prompt*, in milliseconds, compact enough to act on coherently, and computed off the request path — because analytics in the path scales cost with every conversation, and a multitude of signals in a system prompt makes an agent muddier, not sharper.
+Enterprise customer analytics evolved for human consumption — ever-finer segmentations, dozens of scores, real-time feature pipelines feeding dashboards that analysts interpret at leisure. LLM agents invert every one of those assumptions. An agent needs intelligence in milliseconds, in a form a prompt can carry, and with a durable record of what it was told — because what an agent is told about a customer silently changes how that customer is treated, and prompt-injected treatment leaves no artifact in any conventional system of record.
 
-Cohort segmentation is as old as CRM; agent platforms already pipe customer context into prompts; the industry is bolting audit logs onto agents. Every ingredient exists — what doesn't is the unification, and the identity at its center: **the audit record and the causal training data are the same structure, written once at injection time.** Today's agent logs are forensic exhaust, built to reconstruct incidents after the fact; none are designed as the statistical instrument a causal model trains on. So this architecture bets against the industry's instinct for richer intelligence and heavier audit trails: make the signal simpler and write it once, so the same frozen record governs the agent, satisfies the auditor, and trains the model.
+The industry's instinct is to make customer intelligence richer. This architecture bets the opposite way — make it simpler, and make the simplification do work that was never possible before.
 
-## The architecture
+## The thesis: audit and training from one write
 
-**Two cohorts, the threshold zone between them, one metric.** A customer is in the high-value cohort or is not — one classification, one boundary. The intelligence concentrates where it pays: the threshold zone of customers whose transition is genuinely in play, scored by an LTV-weighted causal uplift estimate of whether intervention will actually move them, and translated into a recommended agent approach. The executive output is a single number — the **Cohort Health Metric**, one business-health figure: the share of the customer base in the high-value cohort. Simplification isn't a compromise here; it's what makes the system fast enough to serve, cheap enough to run, legible enough for an agent to act on, and optimized for processing the signal set collectively — as one coherent unit — rather than piecemeal.
+Agent platforms today run these as two unconnected systems: an audit and observability layer on one side, a training and knowledge pipeline on the other, with no structural relationship between them. This design unifies them. At the moment customer intelligence is injected into the agent's context — before any response is generated — a single tamper-evident record is written, hash-chained, capturing exactly what the agent was told and under which treatment mandate.
 
-**A dual-layer system built on that simplicity.** The compact pre-computed signal — cohort membership, threshold-zone status, the uplift score, churn risk, the recommended approach — lives in an in-memory decision layer and is injected into the agent's prompt in under 15ms at the 99th percentile, at 10M-daily-active-user scale. All expensive analytics run asynchronously in a second layer on an independent schedule — approximately a 95% infrastructure cost reduction versus unified real-time analytics architectures, because nothing analytical ever sits in the request path.
+That record is the source of truth. The compliance trail reads it directly. The causal training corpus is a **derived, PII-scrubbed view of it** — not the same object, so the two demands never conflict: the immutable record satisfies retention and tamper-evidence, while the derived view stays curated, current, and erasure-compatible (per-customer encryption keys mean a deletion request destroys content without breaking the chain). Treatment assignment is read only from these records; training covariates are the values frozen at injection time, eliminating feature leakage by construction; and agent concessions — discounts, waivers, credits — are joined to the mandate in force, so treatment economics feed back into the model.
 
-**Causal, not correlational, on the one transition that matters.** Uplift modeling with treatment and control groups isolates the incremental effect of interventions on cohort transitions from baseline propensity — separating customers who moved because the agent acted from those who would have moved anyway — and weights that effect by lifetime value, so agent effort is spent where causation and value intersect.
+## The design: two cohorts, the threshold zone between them, one metric
 
-**Every injection leaves a record — because prompt-delivered treatment is otherwise invisible.** A coupon leaves a ledger; a treatment mandate delivered through a system prompt leaves nothing, anywhere, unless the record is built deliberately. So a tamper-evident audit record is written at injection time, before the agent generates a word, capturing exactly which signals the enterprise supplied. The second filing closes the loop: that audit record and the causal training substrate are the same structure, written once — treatment assignment is read only from audit records, covariates are the values frozen at assignment time (eliminating feature leakage by construction), a small randomized-withholding cohort upgrades the system to true experimentation, and agent concessions are joined to the mandate in force so treatment economics feed back into the model.
+The entire customer base resolves to a high-value cohort, everyone else, and the threshold zone between them — the narrow band where transition is genuinely in play and where intelligence concentrates. Each customer's state compresses to a ~200-byte pre-computed signal structure — cohort, trajectory, transition score, churn risk, friction, threshold-zone status, recommended approach, freshness — served to the agent in under 15 milliseconds by a single in-memory lookup, with all analytics running asynchronously. The filed estimate: approximately 95% infrastructure cost reduction versus computing equivalent intelligence in the request path.
 
-**One number a board can trust and an auditor can verify.** The Cohort Health Metric decomposes causally into intervention-driven, organic, retention, and attrition components — and because the substrate beneath it is tamper-evident, every unit of high-LTV progression drills down to a verifiable record. Real business decisions — where to spend agent effort, which interventions to scale, which concessions pay for themselves — rest on audited causation rather than dashboard correlation.
+Cohort segmentation itself is as old as CRM — which is exactly the objection this design anticipates. What the simplification buys is three properties no dashboard-era segmentation has: intelligence an LLM can consume mid-conversation, scores that are causal about transition rather than correlational, and a per-session audit record for every injection.
+
+## The causal claim, with the counterfactual named
+
+The transition score is not a propensity score. It estimates the incremental effect of a specific intervention — what the treatment *causes*, not who *looks likely* — against a named counterfactual: matched control groups on behavioral covariates at cold start, upgraded by an always-on randomized-withholding cohort (1–5% of eligible sessions, assignment recorded in the audit substrate itself) to experimentally identified inference, with every model validated on an out-of-sample holdout before its scores reach production. Without that structure, a transition metric is cohort correlation wearing a causal label; with it, the counterfactual is not an assumption but a recorded, verifiable design element.
+
+## One number a board can trust and an auditor can verify
+
+The Cohort Health Metric decomposes causally into intervention-driven, organic, retention, and attrition components — intervention effects counted net of modeled baseline, the withholding cohort reported alongside as the empirical benchmark. Because the substrate beneath it is tamper-evident, every unit of high-LTV progression drills down to a verifiable record. Real business decisions — where to spend agent effort, which interventions to scale, which concessions pay for themselves — rest on audited causation rather than dashboard correlation.
 
 ## Why now
 
@@ -31,5 +39,3 @@ Agent platforms are winning deals on resolution rates and losing sleep on two fr
 ---
 
 *One of three filed provisionals on agent-era enterprise architecture — the others cover post-inference evaluation of AI-generated artifacts and governed content delivery to agents.*
-
-*Prepared by RJSlogar — 15+ years leading technical content organizations for Silicon Valley companies, most recently through an AI-native transformation of enterprise content architecture. These filings are shared as a portfolio of product thinking for the agent era; the conversations I'm looking for are about building, not licensing. https://rjslogar.github.io · https://www.linkedin.com/in/mba-ma-richs/*
