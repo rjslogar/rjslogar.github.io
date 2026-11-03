@@ -6,6 +6,8 @@
 
 *Filed provisional patent applications (two related filings). Working demonstration and full technical specification available under NDA.*
 
+*See the [business health score demonstration summary](business-health-score-demo/SUMMARY.md) for results from a working demonstration.*
+
 ---
 
 ## The problem: analytics built for dashboards can't run in a prompt
