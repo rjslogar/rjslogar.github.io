@@ -1,8 +1,10 @@
 # Two Cohorts, One Metric
 
+***Measure actual business health. Learn from the customers who matter most. Adjust based on proven impact.***
+
 **Customer intelligence simplified until an agent can actually use it — and one record, written at injection time, that is both the audit trail and the source of the causal training data.**
 
-*Filed provisional patent applications (two related filings). Full technical specification available on request.*
+*Filed provisional patent applications (two related filings). Working demonstration and full technical specification available under NDA.*
 
 ---
 
@@ -30,7 +32,7 @@ The transition score is not a propensity score. It estimates the incremental eff
 
 ## One number a board can trust and an auditor can verify
 
-The Cohort Health Metric decomposes causally into intervention-driven, organic, retention, and attrition components — intervention effects counted net of modeled baseline, the withholding cohort reported alongside as the empirical benchmark. Because the substrate beneath it is tamper-evident, every unit of high-LTV progression drills down to a verifiable record. Real business decisions — where to spend agent effort, which interventions to scale, which concessions pay for themselves — rest on audited causation rather than dashboard correlation.
+The Cohort Health Metric decomposes causally into intervention-driven, organic, retention, and attrition components — intervention effects counted net of modeled baseline, the withholding cohort reported alongside as the empirical benchmark. Because the substrate beneath it is tamper-evident, every unit of high-LTV progression drills down to a verifiable record. Real business decisions — where to spend agent effort, which interventions to scale, which concessions pay for themselves — rest on audited causation rather than dashboard correlation. Because every concession is joined to the mandate it was granted under, each intervention's net value is known: its causal effect, weighted by lifetime value, less the expected concession cost. Interventions can then be ranked by what each point of business health actually costs.
 
 ## Why now
 
