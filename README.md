@@ -7,7 +7,7 @@ AI-agent era, written in plain English:
 
 1. **Published Is Not a Policy** — governed content delivery to agents and humans
 2. **Two Cohorts, One Metric** — customer intelligence where the audit record
-   and the causal training data are one structure
+   is the source of the causal training data
 3. **Bias Doesn't Stay Where It Started** — post-inference comprehensibility
    scoring with propagation containment
 

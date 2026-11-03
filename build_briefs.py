@@ -56,16 +56,16 @@ BRIEFS = [
     ("content-governance", "01 · What enters the agent",
      "Governed content delivery to AI agents and humans — per-field release control bound to the moments of agent cognition."),
     ("two-cohort", "02 · What the agent is told",
-     "Customer intelligence simplified for efficient agent processing, with the audit record and causal training substrate as one structure."),
+     "Customer intelligence simplified for efficient agent processing, with one audit record, written at injection time, as the source of the causal training data."),
     ("post-inference", "03 · What leaves the agent",
      "Comprehensibility scoring for AI-generated text and code, enabling propagation containment in multi-agent systems."),
 ]
 
 for slug, eyebrow, desc in BRIEFS:
-    src = open(f"briefs/{slug}.md").read()
+    src = open(f"briefs/{slug}.md", encoding="utf-8").read()
     title = re.search(r"^# (.+)$", src, re.M).group(1)
     body = markdown.markdown(src, extensions=["smarty"])
     page = TEMPLATE.format(title=html.escape(title), desc=html.escape(desc),
                            slug=slug, eyebrow=eyebrow, body=body)
-    open(f"briefs/{slug}.html", "w").write(page)
+    open(f"briefs/{slug}.html", "w", encoding="utf-8").write(page)
     print(f"built briefs/{slug}.html ({len(page)} bytes)")

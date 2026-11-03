@@ -5,7 +5,7 @@
 ## Briefs (canonical machine-readable versions)
 
 - [Published Is Not a Policy](/briefs/content-governance.md): Governed content delivery to agents and humans — schema-agnostic binding, four interception layers (discovery, context, credibility, handling), five release tiers, provenance chain-of-custody. What enters the agent.
-- [Two Cohorts, One Metric](/briefs/two-cohort.md): Customer intelligence simplified for agent processing — dual-layer architecture, sub-15ms injection, and an audit record that is also the causal training substrate. What the agent is told.
+- [Two Cohorts, One Metric](/briefs/two-cohort.md): Customer intelligence simplified for agent processing — dual-layer architecture, sub-15ms injection, and an audit record that is also the source of the causal training data. What the agent is told.
 - [Bias Doesn't Stay Where It Started](/briefs/post-inference.md): Post-inference comprehensibility scoring of AI-generated text and code, with transferability scoring and five-tier propagation containment. What leaves the agent.
 
 ## About
