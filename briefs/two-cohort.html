@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Two Cohorts, One Metric � RJSlogar</title>
-<meta name="description" content="Customer intelligence simplified for efficient agent processing, with the audit record and causal training substrate as one structure.">
+<title>Two Cohorts, One Metric — RJSlogar</title>
+<meta name="description" content="Customer intelligence simplified for efficient agent processing, with one audit record, written at injection time, as the source of the causal training data.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Public+Sans:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -15,7 +15,7 @@
   "@type": "TechArticle",
   "headline": "Two Cohorts, One Metric",
   "author": {"@type": "Person", "name": "RJSlogar"},
-  "description": "Customer intelligence simplified for efficient agent processing, with the audit record and causal training substrate as one structure.",
+  "description": "Customer intelligence simplified for efficient agent processing, with one audit record, written at injection time, as the source of the causal training data.",
   "encodingFormat": "text/html",
   "sameAs": "https://rjslogar.github.io/briefs/two-cohort.md"
 }
@@ -25,7 +25,7 @@
 <body>
 <header class="site">
   <div class="shell">
-    <a class="wordmark" href="../index.html">RJSlogar � Agent-Era Architecture</a>
+    <a class="wordmark" href="../index.html">RJSlogar · Agent-Era Architecture</a>
     <nav aria-label="Site">
       <a href="../index.html">Briefs</a>
       <a href="../about.html">About</a>
@@ -36,10 +36,11 @@
 <main class="shell">
 <div class="sibling">Governed siblings: you are reading the human serialization of this brief. Agents should prefer the <a href="two-cohort.md">machine-readable twin</a>.</div>
 <article>
-<p class="eyebrow">02 � What the agent is told</p>
+<p class="eyebrow">02 · What the agent is told</p>
 <h1>Two Cohorts, One Metric</h1>
+<p><strong><em>Measure actual business health. Learn from the customers who matter most. Adjust based on proven impact.</em></strong></p>
 <p><strong>Customer intelligence simplified until an agent can actually use it — and one record, written at injection time, that is both the audit trail and the source of the causal training data.</strong></p>
-<p><em>Filed provisional patent applications (two related filings). Full technical specification available on request.</em></p>
+<p><em>Filed provisional patent applications (two related filings). Working demonstration and full technical specification available under NDA.</em></p>
 <hr />
 <h2>The problem: analytics built for dashboards can&rsquo;t run in a prompt</h2>
 <p>Enterprise customer analytics evolved for human consumption — ever-finer segmentations, dozens of scores, real-time feature pipelines feeding dashboards that analysts interpret at leisure. LLM agents invert every one of those assumptions. An agent needs intelligence in milliseconds, in a form a prompt can carry, and with a durable record of what it was told — because what an agent is told about a customer silently changes how that customer is treated, and prompt-injected treatment leaves no artifact in any conventional system of record.</p>
@@ -53,7 +54,7 @@
 <h2>The causal claim, with the counterfactual named</h2>
 <p>The transition score is not a propensity score. It estimates the incremental effect of a specific intervention — what the treatment <em>causes</em>, not who <em>looks likely</em> — against a named counterfactual: matched control groups on behavioral covariates at cold start, upgraded by an always-on randomized-withholding cohort (1–5% of eligible sessions, assignment recorded in the audit substrate itself) to experimentally identified inference, with every model validated on an out-of-sample holdout before its scores reach production. Without that structure, a transition metric is cohort correlation wearing a causal label; with it, the counterfactual is not an assumption but a recorded, verifiable design element.</p>
 <h2>One number a board can trust and an auditor can verify</h2>
-<p>The Cohort Health Metric decomposes causally into intervention-driven, organic, retention, and attrition components — intervention effects counted net of modeled baseline, the withholding cohort reported alongside as the empirical benchmark. Because the substrate beneath it is tamper-evident, every unit of high-LTV progression drills down to a verifiable record. Real business decisions — where to spend agent effort, which interventions to scale, which concessions pay for themselves — rest on audited causation rather than dashboard correlation.</p>
+<p>The Cohort Health Metric decomposes causally into intervention-driven, organic, retention, and attrition components — intervention effects counted net of modeled baseline, the withholding cohort reported alongside as the empirical benchmark. Because the substrate beneath it is tamper-evident, every unit of high-LTV progression drills down to a verifiable record. Real business decisions — where to spend agent effort, which interventions to scale, which concessions pay for themselves — rest on audited causation rather than dashboard correlation. Because every concession is joined to the mandate it was granted under, each intervention&rsquo;s net value is known: its causal effect, weighted by lifetime value, less the expected concession cost. Interventions can then be ranked by what each point of business health actually costs.</p>
 <h2>Why now</h2>
 <p>Agent platforms are winning deals on resolution rates and losing sleep on two fronts at once: the infrastructure cost of putting intelligence into every conversation, and the governance question regulators and enterprise buyers are already asking — <em>what did you tell the agent about me, and what happened because of it?</em> A two-cohort, one-metric design answers both with the same move: intelligence simple enough to serve at conversation scale is also simple enough to explain, audit, and learn from.</p>
 <hr />
@@ -62,7 +63,7 @@
 </main>
 <footer class="site">
   <div class="shell">
-    <span>� 2026 RJSlogar � <a href="mailto:rjslogar@gmail.com">rjslogar@gmail.com</a> � <a href="https://www.linkedin.com/in/mba-ma-richs/">LinkedIn</a></span>
+    <span>© 2026 RJSlogar · <a href="mailto:rjslogar@gmail.com">rjslogar@gmail.com</a> · <a href="https://www.linkedin.com/in/mba-ma-richs/">LinkedIn</a></span>
     <span>This site ships governed siblings: every brief has a <a href="../llms.txt">machine-readable twin</a>.</span>
   </div>
 </footer>
