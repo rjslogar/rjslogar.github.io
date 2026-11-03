@@ -67,6 +67,11 @@ article p, article li { color: var(--ink); }
 article strong { font-weight: 600; }
 article hr { border: 0; border-top: 1px solid var(--rule); margin: 2.2rem 0; }
 article em { color: inherit; }
+article table { width: 100%; border-collapse: collapse; margin: 1.4rem 0 1.6rem; font-size: 0.95rem; }
+article th, article td { text-align: left; vertical-align: top; padding: 0.6rem 0.8rem; border-bottom: 1px solid var(--rule); }
+article thead th { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--slate); border-bottom: 2px solid var(--ink); }
+article td:first-child { width: 34%; }
+@media (max-width: 40rem) { article th, article td { padding: 0.5rem 0.4rem; } article td:first-child { width: auto; } }
 article > p:first-of-type strong { font-family: "Newsreader", Georgia, serif; font-weight: 500; font-size: 1.2rem; line-height: 1.4; }
 .sibling {
   margin: 2rem auto 0; max-width: var(--measure);
