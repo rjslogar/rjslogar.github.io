@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Correct Isn&#x27;t the Same as Understood — RJSlogar</title>
+<meta name="description" content="Results from a working demonstration of Clar-Code: whether a human can understand and validate AI-generated code that passes every test.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Public+Sans:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Correct Isn&#x27;t the Same as Understood",
+  "author": {"@type": "Person", "name": "RJSlogar"},
+  "description": "Results from a working demonstration of Clar-Code: whether a human can understand and validate AI-generated code that passes every test.",
+  "encodingFormat": "text/html",
+  "sameAs": "https://rjslogar.github.io/briefs/clar-code-demo/SUMMARY.md"
+}
+</script>
+<!-- Analytics: uncomment after setup, same snippet as index.html -->
+</head>
+<body>
+<header class="site">
+  <div class="shell">
+    <a class="wordmark" href="../../index.html">RJSlogar · Agent-Era Architecture</a>
+    <nav aria-label="Site">
+      <a href="../../index.html">Briefs</a>
+      <a href="../../about.html">About</a>
+      <a href="../../llms.txt">llms.txt</a>
+    </nav>
+  </div>
+</header>
+<main class="shell">
+<div class="sibling">Governed siblings: you are reading the human serialization of this brief. Agents should prefer the <a href="SUMMARY.md">machine-readable twin</a>.</div>
+<article>
+<p class="eyebrow">03 · Demonstration summary</p>
+<h1>Correct Isn&rsquo;t the Same as Understood</h1>
+<p><strong><em>Can anyone on your team explain what your agents shipped?</em></strong></p>
+<p><strong>TL;DR:</strong> A patent-pending method that measures whether a human can understand and validate AI-generated code, even when it passes every test and complexity check. Seven independent checks combine into one Comprehensibility Opacity Score: a calibrated probability that a reviewer will fail to validate the code. That probability drives a merge gate, and it keeps opaque code from spreading to other agents. We&rsquo;re looking for a partner to pilot and co-develop it.</p>
+<p><strong>Audience:</strong> Engineering, platform and AI leaders · <strong>Reading time:</strong> about 3 minutes</p>
+<p><strong>Status:</strong> Patent pending, U.S. provisional application filed in 2026 · Non-confidential overview</p>
+<h2>The problem</h2>
+<p>AI agents now write code faster than people can review it. Releases speed up, but stability and confidence drop, because the problems agents introduce are rarely loud:</p>
+<ul>
+<li><strong>The code is correct, but nobody can follow it.</strong> Tests pass, linters pass, and complexity metrics rate it well, yet a reviewer can&rsquo;t tell what it does or why.</li>
+<li><strong>Review fatigue hides the real issues.</strong> Large diffs, extra layers and unused code bury a step taken in the wrong order or an error swallowed without a trace.</li>
+<li><strong>Opacity spreads.</strong> One agent&rsquo;s output is the next agent&rsquo;s input and training data, so code nobody understood becomes the pattern the next agent copies.</li>
+</ul>
+<p>Existing tools check correctness, security, style and complexity. None of them measures whether a person can actually validate what shipped.</p>
+<h2>The approach</h2>
+<ol>
+<li><strong>Check what complexity metrics can&rsquo;t see.</strong> Seven independent checks, each using the method suited to what it detects. They cover hidden structure, complexity beyond what the problem needs, names that echo the prompt instead of the problem, architecture that serves no purpose, how much simpler the same behavior could be, steps that surprise a reader at runtime, and whether the code can be explained on its own.</li>
+<li><strong>Combine them into one calibrated probability, with reasons.</strong> Every score comes with each check&rsquo;s contribution and the lines that caused it. Comments that state assumptions, and evidence that a human understood the code, lower the score.</li>
+<li><strong>Act on the score.</strong> A merge gate records, reviews or blocks opaque code that no one has shown they understand, and recommends tightening itself as incidents accumulate. Containment keeps opaque code out of other agents&rsquo; context and training data, or replaces it with a simpler equivalent.</li>
+</ol>
+<h2>What a working demonstration shows</h2>
+<p>A simulated corpus of 3,000 AI-generated functions with known, planted problems, so every result can be checked against the truth:</p>
+<table>
+<thead>
+<tr>
+<th>Result</th>
+<th>Simulated outcome</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Correct isn&rsquo;t understood</strong></td>
+<td>Every function passes its tests and earns the top maintainability grade from standard complexity metrics (Radon). Among the 90 hardest to validate, the method flagged 87%</td>
+</tr>
+<tr>
+<td><strong>More accurate than the alternatives</strong></td>
+<td>Separated hard-to-validate code at 0.83 AUC, near the best possible 0.85, vs 0.77 for a single neural judge and 0.67 for complexity metrics</td>
+</tr>
+<tr>
+<td><strong>The score means what it says</strong></td>
+<td>Within 0.06 of the true probability on average, less than half the single judge&rsquo;s error</td>
+</tr>
+<tr>
+<td><strong>Every score explained</strong></td>
+<td>Each finding points to a line of code and the check that found it</td>
+</tr>
+<tr>
+<td><strong>Humans close the loop</strong></td>
+<td>A second reviewer&rsquo;s sign-off cut an example&rsquo;s score from 0.66 to 0.32; flagged merges without that evidence had 3.9 times the incident rate</td>
+</tr>
+<tr>
+<td><strong>Opacity contained</strong></td>
+<td>Replacing flagged code with simpler equivalents halved the opaque code a downstream agent learned to write, from 21% to 10%</td>
+</tr>
+</tbody>
+</table>
+<p>Results are from simulated data and show the method working, not results for any real codebase.</p>
+<h2>The value to a partner</h2>
+<ul>
+<li><strong>Faster releases without losing stability,</strong> by gating merges on demonstrated understanding, not just green checks</li>
+<li><strong>Review effort aimed where it matters,</strong> with each finding pinned to the lines that caused it</li>
+<li><strong>Audit-ready evidence</strong> of what was reviewed, by whom, and why it was allowed to merge</li>
+<li><strong>Cleaner inputs for every agent downstream,</strong> including the data future agents learn from</li>
+<li><strong>A differentiated capability</strong> for code-review, developer-platform and AI-agent products</li>
+</ul>
+<h2>Next step</h2>
+<p>A 30-minute call to walk through the working demonstration and discuss a pilot on your own agent-generated pull requests.</p>
+<p><strong>Contact:</strong> Rich Slogar · rjslogar@gmail.com</p>
+</article>
+</main>
+<footer class="site">
+  <div class="shell">
+    <span>© 2026 RJSlogar · <a href="mailto:rjslogar@gmail.com">rjslogar@gmail.com</a> · <a href="https://www.linkedin.com/in/mba-ma-richs/">LinkedIn</a></span>
+    <span>This site ships governed siblings: every brief has a <a href="../../llms.txt">machine-readable twin</a>.</span>
+  </div>
+</footer>
+</body>
+</html>
