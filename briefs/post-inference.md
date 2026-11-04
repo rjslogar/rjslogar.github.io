@@ -4,6 +4,8 @@
 
 *Filed provisional patent application. Full technical specification available on request.*
 
+*See the [Clar-Code demonstration summary](clar-code-demo/SUMMARY.md) for results from a working demonstration of the code evaluation.*
+
 ---
 
 ## The problem: flawed output is contagious
