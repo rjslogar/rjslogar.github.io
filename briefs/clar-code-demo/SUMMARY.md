@@ -51,4 +51,4 @@ Results are from simulated data and show the method working, not results for any
 
 A 30-minute call to walk through the working demonstration and discuss a pilot on your own agent-generated pull requests.
 
-**Contact:** Rich Slogar · rjslogar@gmail.com
+**Contact:** rjslogar@gmail.com
