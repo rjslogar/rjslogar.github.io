@@ -25,7 +25,7 @@ AI agents now read enterprise content directly: product data, pricing, documenta
 3. **Tailor content to each requester's context.** Each company's agent sees only the APIs it implemented and the features it has enabled, generated per request from one source document.
 4. **Deliver every format from one binding, with oversight built in.** llms.txt, skill.md, JSON-LD and HTML all come from the same governed decision, giving agents structured, consistent content with trust metadata, which is what agent search optimization needs. A provenance record travels with the content, and oversight tools catch tampering and unreviewed schema changes.
 
-[![Content types, the schema-agnostic binding engine, four requesters, and customized, context-aware delivery](images/binding_diagram.png)](images/binding_diagram.png)
+<a href="images/binding_diagram.png"><img src="images/binding_diagram.png" width="640" alt="Content types, the schema-agnostic binding engine, four requesters, and customized, context-aware delivery"></a>
 
 *Select the diagram to open it full size.*
 
