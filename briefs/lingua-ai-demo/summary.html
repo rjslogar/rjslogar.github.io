@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>One Content Source, Customized For Every Requester Context — RJSlogar</title>
+<meta name="description" content="Results from a working demonstration of Lingua-AI: governed, context-aware content for every agent and person, from one source.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Public+Sans:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "One Content Source, Customized For Every Requester Context",
+  "author": {"@type": "Person", "name": "RJSlogar"},
+  "description": "Results from a working demonstration of Lingua-AI: governed, context-aware content for every agent and person, from one source.",
+  "encodingFormat": "text/html",
+  "sameAs": "https://rjslogar.github.io/briefs/lingua-ai-demo/SUMMARY.md"
+}
+</script>
+<!-- Analytics: uncomment after setup, same snippet as index.html -->
+</head>
+<body>
+<header class="site">
+  <div class="shell">
+    <a class="wordmark" href="../../index.html">RJSlogar · Agent-Era Architecture</a>
+    <nav aria-label="Site">
+      <a href="../../index.html">Briefs</a>
+      <a href="../../about.html">About</a>
+      <a href="../../llms.txt">llms.txt</a>
+    </nav>
+  </div>
+</header>
+<main class="shell">
+<div class="sibling">Governed siblings: you are reading the human serialization of this brief. Agents should prefer the <a href="SUMMARY.md">machine-readable twin</a>.</div>
+<article>
+<p class="eyebrow">01 · Demonstration summary</p>
+<h1>One Content Source, Customized For Every Requester Context</h1>
+<p><strong><em>Give every agent and every person exactly the content they&rsquo;re entitled to, tailored to them, with a record of why.</em></strong></p>
+<p><strong>TL;DR:</strong> A patent-pending governance layer that sits on top of existing content, without migrating or copying it. It tags every field automatically, releases each field in one of five tiers based on what the requester declares and can prove, tailors the content to each requester&rsquo;s context, and records every decision. The result is content agents can find, trust and act on, a direct answer to agent search optimization. We&rsquo;re looking for a partner to pilot and co-develop it.</p>
+<p><strong>Audience:</strong> Content, platform, commerce and compliance leaders · <strong>Reading time:</strong> about 3 minutes</p>
+<p><strong>Status:</strong> Patent pending, U.S. provisional application filed in 2026 · Non-confidential overview</p>
+<h2>The problem</h2>
+<p>AI agents now read enterprise content directly: product data, pricing, documentation, disclosures. They increasingly decide what people see, compare and buy, so making content visible and trustworthy to agents, <strong>agent search optimization</strong>, is becoming an industry-wide challenge. Most content systems weren&rsquo;t built for this, and often the choice is all or nothing:</p>
+<ul>
+<li><strong>Invisible or uncontrolled in agent answers.</strong> Agents recommend what they can read and trust; blocked or unstructured content drops out of their answers.</li>
+<li><strong>Publish it and lose control.</strong> An agent that reads the public page gets everything on it, with no say over what it&rsquo;s used for.</li>
+<li><strong>Block it and lose the business.</strong> Shopping agents, partner integrations and internal copilots can&rsquo;t get the content they legitimately need.</li>
+<li><strong>Copy it to tailor it.</strong> Giving each customer its own version means maintaining duplicate documents that drift out of date.</li>
+<li><strong>No record of why.</strong> When an agent gets a field, nobody can say what entitled it to, or prove it afterward.</li>
+</ul>
+<h2>The approach</h2>
+<ol>
+<li><strong>Bind governance to content where it already lives.</strong> Any format (JSON, YAML, XML, Markdown) is read with nothing lost or changed. A model proposes a release tier for every field, and each customer reviews and approves its own mapping.</li>
+<li><strong>Release each field by what the requester declares and proves.</strong> Five tiers run from open to excluded, each with its own requirement. An agent with no setup gets the open fields, an agent that declares its purpose gets more, and verified sessions or partner tokens unlock the most sensitive fields. Every release decision is a deterministic rule check that can be certified.</li>
+<li><strong>Tailor content to each requester&rsquo;s context.</strong> Each company&rsquo;s agent sees only the APIs it implemented and the features it has enabled, generated per request from one source document.</li>
+<li><strong>Deliver every format from one binding, with oversight built in.</strong> llms.txt, skill.md, JSON-LD and HTML all come from the same governed decision, giving agents structured, consistent content with trust metadata, which is what agent search optimization needs. A provenance record travels with the content, and oversight tools catch tampering and unreviewed schema changes.</li>
+</ol>
+<p><a href="images/binding_diagram.png"><img alt="Content types, the schema-agnostic binding engine, four requesters, and customized, context-aware delivery" src="images/binding_diagram.png" /></a></p>
+<p><em>Select the diagram to open it full size.</em></p>
+<h2>What a working demonstration shows</h2>
+<p>A simulated set of twelve companies, four content genres and four formats, with every result checked against each customer&rsquo;s allowed tiers:</p>
+<table>
+<thead>
+<tr>
+<th>Result</th>
+<th>Simulated outcome</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Content used as it is</strong></td>
+<td>All 276 content objects read with nothing lost or changed, across four formats</td>
+</tr>
+<tr>
+<td><strong>Less tagging work, fewer errors</strong></td>
+<td>90% of fields tagged automatically; hand-written keyword scripts leaked 44 fields, the model with each customer&rsquo;s review leaked 1</td>
+</tr>
+<tr>
+<td><strong>Each customer sets its own rules</strong></td>
+<td>Customers changed proposals to match their own policies, and a strict customer&rsquo;s 0.95 threshold produced 0 leaks</td>
+</tr>
+<tr>
+<td><strong>Enforcement holds</strong></td>
+<td>5,000 random requests, including forged and expired credentials, with 0 enforcement errors</td>
+</tr>
+<tr>
+<td><strong>Context-aware content</strong></td>
+<td>Each company&rsquo;s agent got exactly its own APIs and enabled features, from one source: 1 document to maintain instead of 27 copies</td>
+</tr>
+<tr>
+<td><strong>Better than other content frameworks</strong></td>
+<td>99% of entitled fields delivered and none released without entitlement; page-level controls released 811 fields without entitlement</td>
+</tr>
+<tr>
+<td><strong>Every decision explained</strong></td>
+<td>Reason codes, counterfactuals and a custody chain for every release; tampering and unreviewed schema changes caught before they ship</td>
+</tr>
+</tbody>
+</table>
+<p>Results are from simulated data and show the method working, not results for any real company.</p>
+<h2>The value to a partner</h2>
+<ul>
+<li><strong>Agent search optimization,</strong> with structured, trustworthy content agents can find, cite and act on, without giving up control</li>
+<li><strong>Agents become a channel, not a risk,</strong> because they get more content by declaring intent or proving identity</li>
+<li><strong>No migration and no tagging project,</strong> because governance sits on top of existing content and the model drafts the mapping</li>
+<li><strong>One source for every customer,</strong> with tailored content and no duplicate copies to keep in sync</li>
+<li><strong>Audit-ready releases</strong> for compliance, disputes and partner agreements</li>
+<li><strong>A differentiated capability</strong> for content, commerce, documentation and agent platforms</li>
+</ul>
+<h2>Next step</h2>
+<p>A 30-minute call to walk through the working demonstration and discuss a pilot on one content type you already serve to agents.</p>
+<p><strong>Contact:</strong> rjslogar@gmail.com</p>
+</article>
+</main>
+<footer class="site">
+  <div class="shell">
+    <span>© 2026 RJSlogar · <a href="mailto:rjslogar@gmail.com">rjslogar@gmail.com</a> · <a href="https://www.linkedin.com/in/mba-ma-richs/">LinkedIn</a></span>
+    <span>This site ships governed siblings: every brief has a <a href="../../llms.txt">machine-readable twin</a>.</span>
+  </div>
+</footer>
+</body>
+</html>
