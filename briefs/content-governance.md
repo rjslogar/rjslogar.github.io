@@ -4,6 +4,8 @@
 
 *Filed provisional patent application. Full technical specification available on request.*
 
+*See the [Lingua-AI demonstration summary](lingua-ai-demo/SUMMARY.md) for results from a working demonstration.*
+
 ---
 
 ## The problem: one bit of governance for an agent-scale world
